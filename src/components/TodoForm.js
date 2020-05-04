@@ -21,6 +21,16 @@ class TodoForm extends React.Component {
     this.setState({
         name: ''
       });
+      localStorage.setItem("list", JSON.stringify(this.list));
+      localStorage.setItem("newItem", "");
+  }
+
+  updateInput(key, value) {
+    // update react state
+    this.setState({ [key]: value });
+
+    // update localStorage
+    localStorage.setItem(key, value);
   }
 
   render() {
